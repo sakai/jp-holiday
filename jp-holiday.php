@@ -3,7 +3,8 @@
 //  ========================================================
 //  jp-holiday.cls.php ---- 日本国祝日取得のための DateTime オブジェクト拡張
 //  Copyright 2008 Kiyoshi Sakai <sakai [アット] d4k [ドット] net>
-//  version: 0.0.2
+//  2016/08/04 - 春分、秋分の日追加、山の日追加
+//  version: 0.0.3
 //  ========================================================
 
 
@@ -102,7 +103,9 @@ class JpDateTime extends DateTime {
 		2012 => '03-20',
 		2013 => '03-20',
 		2014 => '03-21',
-		2015 => '03-21'
+		2015 => '03-21',
+		2016 => '03-20',
+		2017 => '03-20'
 	);
 
 	public $jp_hol_autumnal_equinox_days = array(
@@ -197,7 +200,9 @@ class JpDateTime extends DateTime {
 		2012 => '09-22',
 		2013 => '09-23',
 		2014 => '09-23',
-		2015 => '09-23'
+		2015 => '09-23',
+		2016 => '09-22',
+		2017 => '09-23'
 	);
 
 	public function getJpHolNationalFoundationDay($y) {
@@ -332,6 +337,15 @@ class JpDateTime extends DateTime {
 				$this->jp_hol_name = '海の日';
 				$this->jp_hol_engl = 'Marine Day';
 				$this->jp_hol_desc = '海の恩恵に感謝するとともに、海洋国日本の繁栄を願う。';
+				$this->is_jp_holiday = true;
+				return true;
+			}
+			break;
+		case '08-11':
+			if(2016 <= $y) {
+				$this->jp_hol_name = '山の日';
+				$this->jp_hol_engl = 'Mountain Day';
+				$this->jp_hol_desc = '山に親しむ機会を得て、山の恩恵に感謝する。';
 				$this->is_jp_holiday = true;
 				return true;
 			}
