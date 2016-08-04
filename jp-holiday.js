@@ -6,7 +6,8 @@
 //    参考にしたサイト
 //      http://www.asahi-net.or.jp/~ci5m-nmr/misc/holiday.html 
 //  2008/10/07 - バグ修正
-//  version: 0.0.2
+//  2016/08/04 - 春分、秋分の日追加、山の日追加
+//  version: 0.0.3
 //  ========================================================
 
 Date.prototype.one_day_epoch = 1000 * 60 * 60 * 24;
@@ -103,7 +104,9 @@ Date.prototype.jp_hol_vernal_equinox_days = {
 	2012 : '3/20',
 	2013 : '3/20',
 	2014 : '3/21',
-	2015 : '3/21'
+	2015 : '3/21',
+	2016 : '3/20',
+	2017 : '3/20'
 };
 
 Date.prototype.jp_hol_autumnal_equinox_days = {
@@ -198,7 +201,9 @@ Date.prototype.jp_hol_autumnal_equinox_days = {
 	2012 : '9/22',
 	2013 : '9/23',
 	2014 : '9/23',
-	2015 : '9/23'
+	2015 : '9/23',
+	2016 : '9/22',
+	2017 : '9/23'
 };
 
 Date.prototype.getJpHolNationalFoundationDay = function (y) {
@@ -350,6 +355,15 @@ Date.prototype.isJpHoliday = function(by_date_itself) {
 			this.jp_hol_name = '海の日';
 			this.jp_hol_engl = 'Marine Day';
 			this.jp_hol_desc = '海の恩恵に感謝するとともに、海洋国日本の繁栄を願う。';
+			this.is_jp_holiday = true;
+			return true;
+		}
+		break;
+	case '8/11':
+		if(2016 <= y) {
+			this.jp_hol_name = '山の日';
+			this.jp_hol_engl = 'Mountain Day';
+			this.jp_hol_desc = '山に親しむ機会を得て、山の恩恵に感謝する。';
 			this.is_jp_holiday = true;
 			return true;
 		}
